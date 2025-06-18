@@ -1,4 +1,4 @@
-baseURL: "https://examplesite.com/"
+baseURL: "https://hola-luna.github.io/"
 title: Hola Luna
 #paginate: 5
 theme: PaperMod
@@ -129,3 +129,7 @@ markup:
   goldmark:
     renderer:
       unsafe: true
+
+caches:
+  images:
+    dir: :cacheDir/images
