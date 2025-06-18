@@ -1,0 +1,22 @@
+# Hugo build output
+/public/
+/resources/_gen/
+/hugo_stats.json
+
+# OS / Editor files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# Node modules (if used)
+node_modules/
+
+# Logs
+*.log
+
+# IDEs
+.vscode/
+.idea/
+*.code-workspace
+
