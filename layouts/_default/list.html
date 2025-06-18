@@ -1,0 +1,91 @@
+{{- define "main" -}}
+
+  {{- if and site.Params.profileMode.enabled .IsHome -}}
+    {{- partial "index_profile.html" . -}}
+  {{- else -}}
+
+    {{- if not .IsHome | and .Title -}}
+      <header class="page-header">
+        {{ partial "breadcrumbs.html" . }}
+        <h1>{{ .Title }}</h1>
+        {{- if .Description }}
+          <div class="post-description">{{ .Description | markdownify }}</div>
+        {{- end }}
+      </header>
+    {{- end }}
+
+    {{- if .Content }}
+      <div class="post-content">
+        {{- if not (.Param "disableAnchoredHeadings") -}}
+          {{ partial "anchored_headings.html" .Content }}
+        {{- else -}}
+          {{ .Content }}
+        {{- end }}
+      </div>
+    {{- end }}
+
+    {{- $pages := union .RegularPages .Sections -}}
+    {{- if .IsHome -}}
+      {{- $pages = where site.RegularPages "Type" "in" site.Params.mainSections -}}
+      {{- $pages = where $pages "Params.hiddenInHomeList" "!=" "true" -}}
+    {{- end }}
+
+    {{- $paginator := .Paginate $pages -}}
+
+    {{- if and .IsHome site.Params.homeInfoParams (eq $paginator.PageNumber 1) -}}
+      {{ partial "home_info.html" . }}
+    {{- end }}
+
+    {{- $term := .Data.Term -}}
+
+    {{- range $i, $p := $paginator.Pages -}}
+      {{- $class := cond (and $.IsHome (eq $paginator.PageNumber 1) (eq $i 0) (not site.Params.disableSpecial1stPost)) "first-entry" (cond $term "tag-entry" "post-entry") -}}
+      <article class="{{ $class }}">
+        {{ partial "cover.html" (dict "cxt" $p "IsSingle" false "isHidden" (( $p.Param "cover.hiddenInList") | default ( $p.Param "cover.hidden") | default false)) }}
+
+        <!-- <header class="entry-header">
+             <h2 class="entry-hint-parent">{{ $p.Title }}{{ if $p.Draft }}<span class="entry-hint">Draft</span>{{ end }}</h2>
+             </header> -->
+        <h2 class="entry-hint-parent">
+          <a href="{{ $p.Permalink }}">{{ $p.Title }}</a>
+          {{ if $p.Draft }}<span class="entry-hint">Draft</span>{{ end }}
+        </h2>
+
+        {{- if $p.HasShortcode "audio" -}}
+          <div class="entry-content">
+            {{ $p.Content | safeHTML }}
+          </div>
+        {{- else if not ($p.Param "hideSummary") -}}
+          <div class="entry-content">
+            <p>{{ $p.Summary | plainify | htmlUnescape }}{{ if $p.Truncated }}…{{ end }}</p>
+          </div>
+        {{- end }}
+
+        {{- if not ($p.Param "hideMeta") -}}
+          <footer class="entry-footer">
+            {{ partial "post_meta.html" $p }}
+          </footer>
+        {{- end }}
+
+          <!-- <div class="entry-link-wrapper">
+               <a class="entry-link" aria-label="post link to {{ $p.Title | plainify }}" href="{{ $p.Permalink }}"></a>
+               </div> -->
+      </article>
+    {{- end }}
+
+    {{- if gt $paginator.TotalPages 1 -}}
+      <footer class="page-footer">
+        <nav class="pagination">
+          {{- if $paginator.HasPrev -}}
+            <a class="prev" href="{{ $paginator.Prev.URL | absURL }}">« {{ i18n "prev_page" }}{{ if site.Params.ShowPageNums }} {{ sub $paginator.PageNumber 1 }}/{{ $paginator.TotalPages }}{{ end }}</a>
+          {{- end }}
+          {{- if $paginator.HasNext -}}
+            <a class="next" href="{{ $paginator.Next.URL | absURL }}">{{ i18n "next_page" }}{{ if site.Params.ShowPageNums }} {{ add 1 $paginator.PageNumber }}/{{ $paginator.TotalPages }}{{ end }} »</a>
+            {{- end }}
+        </nav>
+      </footer>
+      {{- end }}
+
+      {{- end }}
+
+      {{- end -}}
