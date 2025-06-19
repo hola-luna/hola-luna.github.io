@@ -105,16 +105,16 @@ params:
     limit: 10 # refer: https://www.fusejs.io/api/methods.html#search
     keys: ["title", "permalink", "summary", "content"]
 
-# menu:
-#   main:
-#     - identifier: categories
-#       name: categories
-#       url: /categories/
-#       weight: 10
-#     - identifier: tags
-#       name: tags
-#       url: /tags/
-#       weight: 20
+menu:
+  main:
+    - identifier: Canciones
+      name: Canciones
+      url: /tags/canciones
+      weight: 10
+    - identifier: Fotos
+      name: Fotos
+      url: /tags/fotos
+      weight: 20
 #     - identifier: example
 #       name: example.org
 #       url: https://example.org
