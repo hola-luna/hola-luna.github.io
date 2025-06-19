@@ -51,6 +51,7 @@ params:
     safari_pinned_tab: "<link / abs url>"
     customCSS:
       - css/custom.css
+      - css/extended/custom-single.css
 
   label:
     text: "Inicio"
@@ -59,7 +60,7 @@ params:
 
   # profile-mode
   profileMode:
-    enabled: true # needs to be explicitly set
+    enabled: false # needs to be explicitly set
     title: "Hola Luna \U0001F44B"
     subtitle: ""
     imageUrl: "/images/luna.jpg"
@@ -75,7 +76,7 @@ params:
   # home-info mode
   homeInfoParams:
     Title: "Hola Luna \U0001F44B"
-    Content: Welcome to my blog
+    Content: Un regalito dede Argentina para vos, papá y mamá
 
   # socialIcons:
   #   - name: x
@@ -86,9 +87,11 @@ params:
   #     url: "https://github.com/"
 
   cover:
-    hidden: true # hide everywhere but not in structured data
-    hiddenInList: true # hide on list pages and home
-    hiddenInSingle: true # hide on single page
+    hidden: false # hide everywhere but not in structured data
+    hiddenInList: false # hide on list pages and home
+    hiddenInSingle: false # hide on single page
+    linkFullImages: true
+    responsiveImages: true
 
   # for search
   # https://fusejs.io/api/options.html

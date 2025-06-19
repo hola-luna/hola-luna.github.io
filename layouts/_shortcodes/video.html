@@ -1,0 +1,9 @@
+<video class="video-shortcode"
+       width="{{ .Get "width" | default "100%" }}"
+       preload="{{ .Get "preload" | default "metadata" }}"
+       {{ if eq (.Get "controls") "false" }}{{ else }}controls{{ end }}
+       {{ if eq (.Get "autoplay") "true" }}autoplay muted{{ end }}
+       {{ if eq (.Get "loop") "true" }}loop{{ end }}>
+    <source src="{{ .Get "src" }}" type="{{ .Get "type" | default "video/mp4" }}">
+    Your browser does not support the video tag.
+</video>

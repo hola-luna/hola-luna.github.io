@@ -1,0 +1,7 @@
+<div class="gallery">
+  {{ range .Params }}
+    <a href="{{ . }}" class="glightbox" data-gallery="post-gallery">
+        <img src="{{ . }}" alt="" loading="lazy" />
+    </a>
+    {{ end }}
+</div>

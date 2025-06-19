@@ -5,6 +5,8 @@ date: "2025-05-10"
 description: ""
 tags: ["canciones"]
 ShowToc: false
+cover:
+  image: "luna.jpg"
 ---
 
 {{< audio src=/audio/luna_lunera.mp3 >}}
@@ -49,4 +51,3 @@ Luna redonda, me hiciste cantar
 Mariana Baggio, Silvia Graciela Schujer
 
 Album: Barcos y Mariposas (Volumen 2)
-

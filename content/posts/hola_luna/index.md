@@ -5,6 +5,8 @@ date: "2025-05-09"
 description: ""
 tags: ["canciones"]
 ShowToc: false
+cover:
+  image: "luna.jpg"
 ---
 
 {{< audio src=/audio/hola_luna_como_estas.mp3 >}}
