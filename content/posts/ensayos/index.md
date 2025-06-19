@@ -1,6 +1,6 @@
 ---
 author: ["Alvar", "Dani", "Eva", "Sol"]
-title: "ensayos"
+title: "Ensayos"
 date: "2025-05-07"
 description: "Algunas fotitos de cuando ensayamos"
 tags: ["fotos"]

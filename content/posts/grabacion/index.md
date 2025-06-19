@@ -1,6 +1,6 @@
 ---
 author: ["Alvar", "Dani", "Eva", "Sol"]
-title: "Grabacion"
+title: "Grabación"
 date: "2025-05-08"
 description: "Algunas fotitos de cuando grabamos"
 tags: ["fotos"]
