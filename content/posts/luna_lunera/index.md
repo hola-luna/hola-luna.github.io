@@ -51,3 +51,6 @@ Luna redonda, me hiciste cantar
 Mariana Baggio, Silvia Graciela Schujer
 
 Album: Barcos y Mariposas (Volumen 2)
+
+
+Grabado en [El Cortarramas Estudio](http://instagram.com/elcortarramas_estudio)
